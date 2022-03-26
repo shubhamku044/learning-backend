@@ -9,9 +9,22 @@ const DB = process.env.DATABASE.replace(
 	process.env.DATABASE_PASSWORD
 )
 
-const { Schema } = mongoose
+// console.log(DB)
 
-const port = 3000
+mongoose
+	.connect(DB, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	})
+	.then((con) => {
+		console.log('connected Successfully')
+		// console.log(con.connection)
+	})
+	.catch((err) => {
+		console.log('Not connected')
+	})
+
+const port = process.env.PORT || 3000
 app.listen(port, () => {
 	console.log(`App running on port: ${port}...`)
 })
