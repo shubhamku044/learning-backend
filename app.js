@@ -24,5 +24,4 @@ app.use('/api/v1/tours', tourRouter)
 app.use('/api/v1/users', userRouter)
 
 // 4. Server
-
 module.exports = app
